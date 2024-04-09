@@ -30,9 +30,9 @@ export const getEstudiantesByRut = async (rut) => {
 /* getEstudiantesByRut("24441883-K"); */
 
 /* Actualizar la información de un estudiante */
-export const actEstudiante = async (actDato, datoVal, buscar, buscarVal) => {
-  const text = `UPDATE estudiantes SET ${actDato} = $1 WHERE ${buscar} = $2 RETURNING *`;
-  const values = [datoVal, buscarVal];
+export const actEstudiante = async (setData, dataVal, dataBuscar, buscarValue) => {
+  const text = `UPDATE estudiantes SET curso = $1 WHERE ${dataBuscar} = $2 RETURNING *`;
+  const values = [dataVal, buscarValue];
   const result = await pool.query(text, values);
   console.log(result.rows);
   return result.rows;
