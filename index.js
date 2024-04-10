@@ -1,17 +1,18 @@
+import rutas from "./src/routes/index.routes.js";
 import express from "express";
-import rutas from "./src/rutas.js"
-export const app = express();
-
+const app = express();
+const PORT = 3000;
 
 //Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Rutas
-app.use("/", rutas);
+app.use("/apiV1", rutas);
 
 //Ruta Genérica
 app.get("*", (req, res) => {
-  res.send("Esta página No Existe");
+  res.send(`<h1>Esta página No Existe</h1>`);
 });
 
+export { app, PORT };

@@ -1,25 +1,15 @@
 import { Router } from "express";
-export const router = Router();
+const router = Router();
 import {
   getEstudiantes,
   getEstudiantesByRut,
   addEstudiante,
   actEstudiante,
   delEstudiante,
-} from "./estudiantesCrud.js";
+} from "../controllers/estudiantes.controller.js";
 
-//Rutas
-
-router.get("/", (req, res) => {
-  try {
-    res.send("Ruta Principal conectada");
-  } catch (error) {
-    console.error("Hubo un error", error.message);
-    res.status(500).send(error.message);
-  }
-});
 /* Obtener todos los Estudiantes */
-router.get("/estudiantes", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const estudiantes = await getEstudiantes();
     res.send(estudiantes);

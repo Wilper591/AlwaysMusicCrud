@@ -1,5 +1,4 @@
-import { app } from "../index.js";
-const PORT = 3000;
+import { app, PORT } from "../index.js";
 
 /* Se levanta el servidor */
 app.listen(PORT, () => {
