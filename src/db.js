@@ -8,4 +8,5 @@ const config = {
   password: "wilper591",
   port: 5432,
 };
+
 export const pool = new Pool(config);
