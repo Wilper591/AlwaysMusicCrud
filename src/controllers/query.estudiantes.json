@@ -1,0 +1,26 @@
+{
+  "addStudent": {
+    "text": "INSERT INTO estudiantes(nombre, rut, curso, nivel) VALUES($1, $2, $3, $4) RETURNING *;",
+    "values": ["Jorge", "24441883-K", "Guitarra", 1],
+    "rowMode": "array"
+  },
+  "getAllStudents": {
+    "text": "SELECT * FROM estudiantes",
+    "rowMode": "array"
+  },
+  "getStudentByRut": {
+    "text": "SELECT * FROM estudiantes WHERE rut = $1",
+    "values": ["24441883-K"],
+    "rowMode": "array"
+  },
+  "updateStudent": {
+    "text": "UPDATE estudiantes SET nivel = $1 WHERE rut = $2 RETURNING *;",
+    "values": [2, "24441883-K"],
+    "rowMode": "array"
+  },
+  "deleteStudent": {
+    "text": "DELETE FROM estudiantes WHERE rut = $1 RETURNING *;",
+    "values": ["24441883-K"],
+    "rowMode": "array"
+  }
+}
